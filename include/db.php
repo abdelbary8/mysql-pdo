@@ -23,6 +23,9 @@ function dbhandler() {
 	}
 	catch (PDOException $e) {
 	    echo 'Database Connection failed: ' . $e->getMessage();
+	    
+	    file_put_contents('errdblog.txt', $e->getMessage(), FILE_APPEND);
+	    
 	}	
 }
 
